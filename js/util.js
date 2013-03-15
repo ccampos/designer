@@ -5,7 +5,7 @@ define(function() {
 	var initialize = function(){
 
 		$.ajax({
-			url: '../json/buttons.json',
+			url: './json/buttons.json',
 			async: false,
 			dataType: 'json',
 			success: function(data, status, jqXHR) {
@@ -17,19 +17,18 @@ define(function() {
 	var render = function() {
 		$.each( buttons, function( index, value ) {
 
-			var btnName = value.name;
+			var btn = {
+				name: value.name,
+				descendants: value.descendants
+			};
 
 			$('#container').append( '<div>' );
 
-			var div = $('div')
+			$('div')
 				.last()
-				.addClass( btnName )
-				.text( btnName );
-
-
-			$.data( div, btnName + index, btnName );
-
-			console.log( $.data( div, btnName + index ) );
+				.attr( 'ref', btn.name )
+				.text( btn.name )
+				.data( btn.name, btn );
 		});
 	};
 
