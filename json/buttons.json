@@ -1,0 +1,19 @@
+[
+	{
+		"name": "Customers",
+		"descendants": [
+			{
+				"name": "View Customer",
+				"descendants": []
+			},
+			{
+				"name": "Find Customer",
+				"descendants": []
+			}
+		]
+	},
+	{
+		"name": "Transaction Type",
+		"descendants": []
+	}
+]
