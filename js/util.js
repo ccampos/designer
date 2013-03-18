@@ -35,12 +35,14 @@ define(function() {
 
 		function iterateChildren( buttons ) {
 			$.each( buttons, function( index, value ) {
-				console.log( value.name );
-				if (!$.isEmptyObject( value.descendants ) ) {
-					console.log( value.name, ': ', value.descendants );
-					iterateChildren( value.descendants );
+				for ( var property in value ) {
+					console.log( property, ': ', value[ property ] );
+					if (!$.isEmptyObject( value[ 'descendants' ] ) ) {
+						iterateChildren( value[ 'descendants' ] );
+					};
 				};
 			});
+			console.log('*************************');
 		};
 	};
 
