@@ -5,7 +5,8 @@ define(function() {
 	var initialize = function(){
 
 		$.ajax({
-			url: './json/buttons.json',
+			// url: './json/buttons.json',
+			url: './json/buttons2.json',
 			async: false,
 			dataType: 'json',
 			success: function(data, status, jqXHR) {
@@ -37,12 +38,16 @@ define(function() {
 			$.each( buttons, function( index, value ) {
 				for ( var property in value ) {
 					console.log( property, ': ', value[ property ] );
-					if (!$.isEmptyObject( value[ 'descendants' ] ) ) {
-						iterateChildren( value[ 'descendants' ] );
+
+					// if descendants is not empty display and create new jquery object with data
+					if (property === 'descendants') {
+						console.log( value[ 'descendants' ] );
 					};
+					// if (!$.isEmptyObject( value[ 'descendants' ] ) ) {
+					// 	iterateChildren( value[ 'descendants' ] );
+					// };
 				};
 			});
-			console.log('*************************');
 		};
 	};
 
